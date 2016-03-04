@@ -1,0 +1,11 @@
+[(#REM) Créer le lien pour exporter les auteurs et afficher le formulaire d'import d'auteur. Voir le pipeline affiche_gauche du plugin. ]
+
+[(#AUTORISER{exporter, ioauteurs})
+  [(#BOITE_OUVRIR{'', raccourcis})]
+
+    [(#URL_ACTION_AUTEUR{exporter_auteurs, all}|icone_horizontale{<:ioauteurs:icone_exporter_nouvel_auteur:>,auteur,export})]
+
+  [(#BOITE_FERMER)]
+
+  #FORMULAIRE_IMPORTER_AUTEURS
+]

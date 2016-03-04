@@ -1,0 +1,31 @@
+<div class="formulaire_spip formulaire_#FORM">
+  <h3 class="titrem">
+    [(#VAL{''}
+      |icone_horizontale{'',auteur,import}
+      |inserer_attribut{class, cadre-icone}
+      |strip_tags{'<span><img>'})]
+    <:ioauteurs:importer_auteur:>
+  </h3>
+[<p class="reponse_formulaire reponse_formulaire_erreur">
+    (#ENV*{message_erreur})
+</p>]
+[<p class="reponse_formulaire reponse_formulaire_ok">
+    (#ENV*{message_ok})
+</p>]
+
+[(#EDITABLE|oui)
+    <form action="#ENV{action}" method="post" enctype="multipart/form-data">
+      #ACTION_FORMULAIRE{#ENV{action}}
+      <ul>
+        [(#SAISIE{input, fichier,
+        explication=<:ioauteurs:importer_auteur_label:>,
+        type=file,
+        size=6})]
+      </ul>
+
+        <p class="boutons">
+            <input type="submit" class="submit" value="<:bouton_upload:>" />
+        </p>
+    </form>
+]
+</div>
